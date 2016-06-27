@@ -3,8 +3,15 @@
 @section('content')
 
 <div class="col-md-8 well">
-
+    @if(count($errors) > 0)
+     <div class="alert alert-danger">
+          @foreach($errors->all() as $err)
+             <span> {{$err}}</span>
+          @endforeach
+        </div>
+    @endif
       
+
       @if(Auth::check())
    {!! Form::open(['url'=>'ask']) !!}
    
@@ -30,7 +37,9 @@
    
   <ul class="nav nav-tabs">
       <li role="presentation" class="active"><a href = "{{ URL::to('home') }}"><span class="glyphicon glyphicon-book"></span> Question</a></li>
-      <li role="presentation" ><a href = "{{ URL::to('your-ques') }}"><span class="glyphicon glyphicon-folder-open"></span> Your Question</a></li>
+      @if(Auth::check())
+        <li role="presentation" ><a href = "{{ URL::to('your-ques') }}"><span class="glyphicon glyphicon-folder-open"></span> Your Question</a></li>
+      @endif
   </ul>
       @if(!$questions->count()) 
       <br>

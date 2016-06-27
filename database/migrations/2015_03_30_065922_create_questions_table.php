@@ -12,18 +12,18 @@ class CreateQuestionsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Questions', function(Blueprint $table)
+		Schema::create('questions', function(Blueprint $table)
 		{
 			$table->increments('id');
-                        $table->integer('user_id')->unsigned();
-                        $table->text('question');
-                        $table->boolean('solved');
+            $table->integer('user_id')->unsigned();
+            $table->text('question');
+            $table->boolean('solved');
 			$table->timestamps();
                         
-                        $table->foreign('user_id')
-                                ->references('id')
-                                ->on('users')
-                                ->onDelete('cascade');
+            $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onDelete('cascade');
 		});
 	}
 

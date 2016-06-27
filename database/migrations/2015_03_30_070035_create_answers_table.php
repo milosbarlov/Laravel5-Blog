@@ -12,23 +12,23 @@ class CreateAnswersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Answers', function(Blueprint $table)
+		Schema::create('answers', function(Blueprint $table)
 		{
 			$table->increments('id');   
-                        $table->integer('user_id')->unsigned();
-                        $table->integer('question_id')->unsigned();
-                        $table->text('answer');
-			$table->timestamps();
+            $table->integer('user_id')->unsigned();
+            $table->integer('question_id')->unsigned();
+            $table->text('answer');
+			$table->timestamps();	
                         
-                        $table->foreign('user_id')
-                                ->references('id')
-                                ->on('users')
-                                ->onDelete('cascade');
-                         
-                        $table->foreign('question_id')
-                                ->references('id')
-                                ->on('questions')
-                                ->onDelete('cascade');
+            $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onDelete('cascade');
+             
+            $table->foreign('question_id')
+                    ->references('id')
+                    ->on('questions')
+                    ->onDelete('cascade');
 		});
 	}
 

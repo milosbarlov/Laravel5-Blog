@@ -19,7 +19,7 @@
      <div class="navbar navbar-default navbar-static-top" role="navigation">
 	   <div class="container" >
 	        <div class="navbar-header" >
-                    <a class="navbar-brand fn" href="#"><span class="glyphicon glyphicon-send"></span> Q&A </a>
+                    <a class="navbar-brand fn" href="{{ URL::to('home')}}"><span class="glyphicon glyphicon-send"></span> Q&A </a>
 	        </div>
 		<div class="navbar-collapse collapse">
 	             <ul class="nav navbar-nav navbar-right">
